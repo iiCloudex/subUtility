@@ -5,5 +5,7 @@
 
 int main(int argc, char **argv)
 {
-	//CODE GOES HERE
+	//Need input/output
+	//using freopen
+	//use getc and putc
 }
