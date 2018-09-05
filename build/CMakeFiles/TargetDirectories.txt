@@ -1,0 +1,3 @@
+/home/marcoantoniobustamante/Desktop/COMP362/lab02/sub/build/CMakeFiles/rebuild_cache.dir
+/home/marcoantoniobustamante/Desktop/COMP362/lab02/sub/build/CMakeFiles/sub.dir
+/home/marcoantoniobustamante/Desktop/COMP362/lab02/sub/build/CMakeFiles/edit_cache.dir
