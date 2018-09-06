@@ -9,4 +9,8 @@
 /home/marcoantoniobustamante/Desktop/COMP362/lab02/sub/sub.c
 stdio.h
 -
+stdlib.h
+-
+string.h
+-
 
