@@ -42,13 +42,11 @@ int main(int argc, char **argv)
 		{
 			case '-':
 				//Set variable
-				toRepl = userInput[2];
-				printf("replacing: %c\n", toRepl);
+				toRepl = userInput + 2;
 				break;
 			case '+':
 				//Set variable
-				isRepl = userInput[2];
-				printf("replacement: %c\n", isRepl);
+				isRepl = userInput + 2;
 				break;
 			case 'i':
 				//Set input file
