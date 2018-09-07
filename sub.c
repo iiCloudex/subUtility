@@ -11,7 +11,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+void helpPrompt()
+{
+	FILE *help;
+	char c;
 
+	help = freopen("help.txt", "r", stdin);
+	
+	while( (c = getc(help)) != EOF)
+	{
+		fputc(c, stdout);
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -20,8 +31,8 @@ int main(int argc, char **argv)
 	char *isRepl = NULL;
 	FILE *inputFile = NULL;
 	FILE *outputFile = NULL;
-	FILE *help;
-	char c;
+	
+	
 
 	for(int i = 1; i < argc; i++)
 	{
@@ -53,6 +64,7 @@ int main(int argc, char **argv)
 				break;
 			case 'h':
 				//print help	
+				helpPrompt();
 				break;
 			default:
 				//Error
