@@ -16,35 +16,43 @@
 int main(int argc, char **argv)
 {
 	char *userInput;
-	char *toRepl;
-	char *isRepl;
-
+	char *toRepl = NULL;
+	char *isRepl = NULL;
+	FILE *inputFile = NULL;
+	FILE *outputFile = NULL;
 
 	for(int i = 1; i < argc; i++)
 	{
 		userInput = argv[i];
 		
-		switch((int) userInput[1])
+		switch(userInput[1])
 		{
-			case (int)'-':
+			case '-':
 				//Set variable
-				printf("needs to be replaced\n");
+				toRepl = userInput[2];
+				printf("replacing: %c\n", toRepl);
 				break;
-			case (int)'+':
+			case '+':
 				//Set variable
-				printf("going to replace\n");
+				isRepl = userInput[2];
+				printf("replacement: %c\n", isRepl);
 				break;
-			case (int)'i':
+			case 'i':
 				//Set input file
-				printf("input file\n");
+				i++;
+				inputFile = argv[i];
+				printf("input file: %s\n", inputFile);
 				break;
-			case (int)'o':
+			case 'o':
 				//Set output file
-				printf("output file\n");
+				i++;
+				outputFile = argv[i];
+				printf("output file: %s\n", outputFile);
 				break;
-			case (int)'h':
+			case 'h':
 				//print help
-				printf("help\h");
+
+				printf("help\n");
 				break;
 			default:
 				//Error
