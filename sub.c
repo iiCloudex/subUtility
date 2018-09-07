@@ -20,6 +20,8 @@ int main(int argc, char **argv)
 	char *isRepl = NULL;
 	FILE *inputFile = NULL;
 	FILE *outputFile = NULL;
+	FILE *help;
+	char c;
 
 	for(int i = 1; i < argc; i++)
 	{
@@ -50,9 +52,7 @@ int main(int argc, char **argv)
 				printf("output file: %s\n", outputFile);
 				break;
 			case 'h':
-				//print help
-
-				printf("help\n");
+				//print help	
 				break;
 			default:
 				//Error
