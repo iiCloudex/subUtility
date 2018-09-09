@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 	FILE *inputFile = NULL;
 	FILE *outputFile = NULL;
 	
-	
 
 	for(int i = 1; i < argc; i++)
 	{
@@ -66,7 +65,8 @@ int main(int argc, char **argv)
 				break;
 			default:
 				//Error
-				printf("error\n");
+				printf("misuse of the sub utility\n");
+				printf("type sub -h for help\n");
 				break;
 		}
 
