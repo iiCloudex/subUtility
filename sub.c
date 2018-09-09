@@ -27,33 +27,36 @@ void helpPrompt()
 	
 }
 
-
 void replace(char *toRepl, char *isRepl, FILE *input, FILE *output)
 {
 	FILE *ir;
 	FILE *or;
 	int index;
+	int minSearch = strlen(toRepl);
 	char *i;
-	char *o;
+
+	if(strlen(isRepl) < minSearch)
+	{
+		minSearch = strlen(isRepl);
+	}
 
 	ir = freopen(input, "r", stdin);
 	or = freopen(output, "w", stdout);
 
 	while( (i = getc(ir)) != EOF)
-	{
-		o = strchr(toRepl, i);
-		
-		if(o)
+	{	
+		index = -1;
+		for(int j = 0; j < strlen(toRepl) && j < minSearch; j++)
 		{
-			index = (int)(o - toRepl);
-			if((isRepl[index]) != '\0') 
+			if( toRepl[j] == i)
 			{
-				fputc(isRepl[index], or);
+				index = j;
 			}
-			else
-			{
-				fputc(i, or);
-			}
+		}
+		
+		if(index >= 0 && isRepl[index] != EOF)
+		{
+			fputc(isRepl[index], or);
 		}
 		else
 		{
