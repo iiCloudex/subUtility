@@ -46,7 +46,7 @@ void replace(char *toRepl, char *isRepl, FILE *input, FILE *output)
 		if(o)
 		{
 			index = (int)(o - toRepl);
-			if((isRepl[index]) != '\0' || (isRepl[index]) != NULL)
+			if((isRepl[index]) != '\0') 
 			{
 				fputc(isRepl[index], or);
 			}
