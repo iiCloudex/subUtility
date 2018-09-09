@@ -22,7 +22,46 @@ void helpPrompt()
 	{
 		fputc(c, stdout);
 	}
+	
+	fclose(help);
+	
 }
+
+
+void replace(char *toRepl, char *isRepl, FILE *input, FILE *output)
+{
+	FILE *ir;
+	FILE *or;
+	int index;
+	char *i;
+	char *o;
+
+	ir = freopen(input, "r", stdin);
+	or = freopen(output, "w", stdout);
+
+	while( (i = getc(ir)) != EOF)
+	{
+		o = strchr(toRepl, i);
+		
+		if(o)
+		{
+			index = (int)(o - toRepl);
+			if(isRepl[index] != '\0')
+			{
+				fputc(isRepl[index], output);
+			}
+		}
+		else
+		{
+			fputc(i, output);
+		}
+	}
+	fclose(ir);
+	fclose(or);	
+
+}
+
+
 
 int main(int argc, char **argv)
 {
@@ -42,10 +81,12 @@ int main(int argc, char **argv)
 			case '-':
 				//Set variable
 				toRepl = userInput + 2;
+				printf("replacing: %s\n", toRepl);
 				break;
 			case '+':
 				//Set variable
 				isRepl = userInput + 2;
+				printf("with: %s\n", isRepl);
 				break;
 			case 'i':
 				//Set input file
@@ -72,7 +113,9 @@ int main(int argc, char **argv)
 
 	}
 
-	return 0;			
+	replace(toRepl, isRepl, inputFile, outputFile);
+
+	return 0;	
 }
 
 
