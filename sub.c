@@ -24,17 +24,17 @@ void helpPrompt()
 	}
 	
 	fclose(help);
-	
+	exit(0);	
 }
 
 
 void replace(char *toRepl, char *isRepl, FILE *input, FILE *output)
 {
-	FILE *ir;
-	FILE *or;
+	FILE *ir = NULL;
+	FILE *or = NULL;
 	int index;
-	char *i;
-	char *o;
+	char *i = NULL;
+	char *o = NULL;
 
 	ir = freopen(input, "r", stdin);
 	or = freopen(output, "w", stdout);
@@ -112,6 +112,7 @@ int main(int argc, char **argv)
 				//Error
 				printf("misuse of the sub utility\n");
 				printf("type sub -h for help\n");
+				exit(1);
 				break;
 		}
 
