@@ -6,6 +6,7 @@ SET(CMAKE_C_FLAGS "-m64 -g -O0 -D_DEBUG -Wall")
 
 set(SOURCE_FILES
 	sub.c
+	help.txt
 	)
 
 add_executable(sub ${SOURCE_FILES})
